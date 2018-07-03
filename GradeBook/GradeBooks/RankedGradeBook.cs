@@ -33,15 +33,18 @@ namespace GradeBook.GradeBooks
         } 
 
         public override void CalculateStatistics(){
-            if(this.Students.Count < 5)
-                throw new InvalidOperationException();
+            if(this.Students.Count < 5){
+                System.Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+                return;
+            }
             base.CalculateStatistics();    
         }
 
         public override void CalculateStudentStatistics(string name){
-             if(this.Students.Count < 5)
-                throw new InvalidOperationException();
-            base.CalculateStudentStatistics(name);    
+            if(this.Students.Count < 5){
+                System.Console.WriteLine("Ranked grading requires at least 5 students with grades in order to properly calculate a student's overall grade.");
+                return;
+            }            base.CalculateStudentStatistics(name);    
         }
     }
 }
